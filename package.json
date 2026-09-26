@@ -1,0 +1,26 @@
+{
+  "name": "astra-university",
+  "private": true,
+  "type": "module",
+  "workspaces": ["app"],
+  "scripts": {
+    "dev": "npm run dev --workspace app -- --host 127.0.0.1",
+    "build": "npm run build --workspace app",
+    "preview": "npm run preview --workspace app -- --host 127.0.0.1",
+    "test": "vitest run",
+    "lint": "npm run lint --workspace app",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
+    "@tensorflow/tfjs": "^4.22.0",
+    "katex": "^0.18.9",
+    "lucide-react": "^1.48.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/katex": "^0.16.8",
+    "vitest": "^3.2.7"
+  }
+}

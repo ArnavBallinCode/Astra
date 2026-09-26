@@ -1,0 +1,29 @@
+.chapter-reader{max-width:850px;margin:0 auto;min-width:0}
+.chapter-start{padding:12px 0 25px}
+.chapter-start h2{font-size:25px;margin:12px 0 18px}
+.chapter-start ul{padding-left:20px;margin:0 0 22px}
+.chapter-start li{font-size:14px;line-height:1.9;padding:3px 0}
+.chapter-prerequisites{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;font-size:12px;padding-top:18px;border-top:1px solid var(--border);color:var(--muted)}
+.chapter-prerequisites a{color:var(--green);text-decoration:underline;text-underline-offset:3px}
+.chapter-contents{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;border-block:1px solid var(--border);padding:13px 0;margin-bottom:12px}
+.chapter-contents button{display:flex;align-items:baseline;gap:10px;padding:10px 0;text-align:left;font-size:12px;line-height:1.6;color:var(--green)}
+.chapter-contents button>span{font:10px monospace;color:var(--muted)}
+.chapter-section{padding:35px 0;border-bottom:1px solid var(--border);scroll-margin-top:25px;overflow-wrap:anywhere}
+.chapter-section-heading{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
+.chapter-section h2{font-size:24px;line-height:1.4;margin-bottom:16px}
+.chapter-section-heading h2{margin-bottom:0}
+.chapter-section>p{font-size:15px;line-height:1.95;margin:0 0 19px;max-width:76ch}
+.chapter-section>h3{font-size:19px;margin:25px 0 13px}
+.worked-example{border-left:3px solid #80ac8a;padding:20px 24px;background:var(--green-soft);margin:23px 0 0;border-radius:0 5px 5px 0}
+.worked-example p{font-size:14px;line-height:1.95;margin-top:9px}
+.chapter-checkpoint{padding:24px 0 0}
+.chapter-checkpoint h3{font-size:17px;margin-bottom:12px}
+.chapter-checkpoint>p,.chapter-checkpoint details p{font-size:14px;line-height:1.9}
+.chapter-checkpoint summary{cursor:pointer;font-size:12px;color:var(--green);padding:15px 0}
+.chapter-checkpoint details p{padding:17px;background:var(--muted-surface);border-radius:4px}
+.chapter-next{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:27px 0;color:var(--green);font-size:17px}
+.chapter-next small{display:block;font-size:10px;color:var(--muted);margin-bottom:9px}
+.lesson-tabs{flex-wrap:wrap;gap:20px}
+.chapter-section .math-block{font-size:17px;max-width:100%;overflow-x:auto}
+.chapter-code{background:#202a24;color:#d3ead5;padding:22px;font:12px/1.9 monospace;border-radius:5px;overflow:auto;white-space:pre;overflow-wrap:normal;max-width:100%}
+@media(max-width:550px){.chapter-start h2{font-size:23px}.chapter-start li{font-size:13px}.chapter-section{padding:27px 0}.chapter-section h2{font-size:21px}.chapter-section-heading{align-items:flex-start;gap:10px}.chapter-section>p{font-size:14px}.chapter-contents{grid-template-columns:1fr}.worked-example{padding:18px}.worked-example p{font-size:13px}.chapter-section .math-block{font-size:13px}.chapter-prerequisites{line-height:1.8}.lesson-tabs{gap:0}.lesson-tabs>button{font-size:10px;padding:12px 6px}.lesson-tabs>button>svg{display:none}.chapter-code{font-size:11px;padding:16px}}
