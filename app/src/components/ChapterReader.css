@@ -23,7 +23,11 @@
 .chapter-checkpoint details p{padding:17px;background:var(--muted-surface);border-radius:4px}
 .chapter-next{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:27px 0;color:var(--green);font-size:17px}
 .chapter-next small{display:block;font-size:10px;color:var(--muted);margin-bottom:9px}
-.lesson-tabs{flex-wrap:wrap;gap:20px}
+.main-content .lesson-tabs{height:auto;min-height:49px;flex-wrap:wrap;column-gap:20px;row-gap:0}
 .chapter-section .math-block{font-size:17px;max-width:100%;overflow-x:auto}
 .chapter-code{background:#202a24;color:#d3ead5;padding:22px;font:12px/1.9 monospace;border-radius:5px;overflow:auto;white-space:pre;overflow-wrap:normal;max-width:100%}
+.chapter-implementation summary{cursor:pointer;color:var(--green);font-size:14px;padding:12px 0}
+.chapter-references ul{list-style:none;padding:0;margin:0}
+.chapter-references li+li{margin-top:12px}
+.chapter-references a{display:inline-flex;align-items:center;gap:10px;color:var(--green);font-size:14px;line-height:1.7;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:550px){.chapter-start h2{font-size:23px}.chapter-start li{font-size:13px}.chapter-section{padding:27px 0}.chapter-section h2{font-size:21px}.chapter-section-heading{align-items:flex-start;gap:10px}.chapter-section>p{font-size:14px}.chapter-contents{grid-template-columns:1fr}.worked-example{padding:18px}.worked-example p{font-size:13px}.chapter-section .math-block{font-size:13px}.chapter-prerequisites{line-height:1.8}.lesson-tabs{gap:0}.lesson-tabs>button{font-size:10px;padding:12px 6px}.lesson-tabs>button>svg{display:none}.chapter-code{font-size:11px;padding:16px}}

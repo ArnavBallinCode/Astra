@@ -1,6 +1,7 @@
 import { architectureChapters } from './chapters-architectures'
 import { languageChapters } from './chapters-language'
 import { systemsChapters } from './chapters-systems'
+import { chapterExtensions } from './chapter-extensions'
 
 export interface ChapterSection {
   title: string
@@ -20,7 +21,7 @@ export interface Chapter {
   implementation?: { language: string; code: string; explanation: string }
 }
 
-export const chapters: Record<string, Chapter> = {
+const baseChapters: Record<string, Chapter> = {
   ...architectureChapters,
   ...languageChapters,
   ...systemsChapters,
@@ -228,3 +229,8 @@ console.log({ weight, bias });` },
     ], application: 'The laboratory trains real TensorFlow.js models, but its displayed accuracy is on the generated training data. It is useful for studying fitting and boundaries, not for claiming held-out benchmark performance.', experiment: 'Use XOR, circles, and spirals. Keep a small table of width, depth, activation, optimizer, rate, epochs, and loss. Change one variable at a time. Explain where a visibly improved boundary might still fail on unseen data.', next: 'convolution',
   },
 }
+
+export const chapters: Record<string, Chapter> = Object.fromEntries(Object.entries(baseChapters).map(([id, chapter]) => [id, {
+  ...chapter,
+  sections: [...chapter.sections, ...(chapterExtensions[id] ?? [])],
+}]))

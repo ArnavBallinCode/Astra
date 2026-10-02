@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test'
 
 test('neuron, graded mastery, bookmarks, and theme persist', async ({ page }) => {
   await page.goto('./#/lesson/neuron')
+  await page.getByRole('tab', { name: 'Experiment', exact: true }).click()
   await expect(page.getByTestId('weighted-sum')).toHaveText('0.42')
   await page.getByLabel('Bias', { exact: true }).fill('0.6')
   await expect(page.getByTestId('weighted-sum')).toHaveText('0.92')
@@ -36,16 +37,19 @@ test('code execution is real, handles errors, and times out loops', async ({ pag
 
 test('attention masking and source retrieval expose actual calculations', async ({ page }) => {
   await page.goto('./#/lesson/attention')
+  await page.getByRole('tab', { name: 'Experiment', exact: true }).click()
   await expect(page.locator('.attention-grid button').filter({ hasText: 'masked' })).toHaveCount(3)
   await page.getByLabel('Causal mask').uncheck()
   await expect(page.locator('.attention-grid button').filter({ hasText: 'masked' })).toHaveCount(0)
   await page.goto('./#/lesson/rag')
+  await page.getByRole('tab', { name: 'Experiment', exact: true }).click()
   await page.getByRole('button', { name: 'Retrieve', exact: true }).click()
   await expect(page.locator('.retrieval-results>div').first()).toContainText('Attention compares queries')
 })
 
 test('TensorFlow trains the XOR network and renders a decision boundary', async ({ page }) => {
   await page.goto('./#/lesson/training')
+  await page.getByRole('tab', { name: 'Experiment', exact: true }).click()
   await page.getByRole('button', { name: 'Train 100 epochs', exact: true }).click()
   await expect(page.locator('.training-lab .result-pair')).toContainText('Epoch100', { timeout: 50000 })
   await expect(page.locator('.decision-boundary rect')).toHaveCount(901)
@@ -61,8 +65,9 @@ test('search, glossary, knowledge map, and token trace navigate', async ({ page 
   await expect(page).toHaveURL(/lesson\/cache/)
   await page.goto('./#/glossary')
   await page.getByLabel('Search glossary').fill('LoRA')
-  await expect(page.locator('.glossary-list>a')).toHaveCount(1)
-  await page.locator('.glossary-list>a').click()
+  const lora = page.locator('.glossary-list>a').filter({ has: page.getByRole('heading', { name: 'LoRA', exact: true }) })
+  await expect(lora).toHaveCount(1)
+  await lora.click()
   await expect(page).toHaveURL(/lesson\/compression/)
   await page.goto('./#/map')
   await expect(page.locator('.map-stage')).toHaveCount(16)
@@ -91,8 +96,10 @@ test('production works offline beneath a GitHub Pages repository path', async ({
   await expect.poll(() => page.evaluate(() => !!navigator.serviceWorker.controller)).toBe(true)
   await context.setOffline(true)
   await page.reload()
+  await page.getByRole('tab', { name: 'Experiment', exact: true }).click()
   await expect(page.getByTestId('weighted-sum')).toHaveText('0.42')
   await page.goto('http://127.0.0.1:4175/Astra/#/lesson/attention')
+  await page.getByRole('tab', { name: 'Experiment', exact: true }).click()
   await expect(page.locator('.attention-grid button')).toHaveCount(9)
   await page.getByRole('tab', { name: 'Code lab', exact: true }).click()
   await page.getByRole('button', { name: 'Run code', exact: true }).click()
